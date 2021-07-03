@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="jenis_dokumen">
+        <item>Pilih Jenis Dokumen</item>
+        <item>RKA-SKPD</item>
+        <item>APBD-MURNI</item>
+        <item>DPA-SKPD</item>
+        <item>RKA-SKPD-PERUBAHAN</item>
+        <item>APBD-PERUBAHAN</item>
+        <item>DPPA-SKPD</item>
+        <item>APBD-REALISASI</item>
+    </string-array>
+</resources>

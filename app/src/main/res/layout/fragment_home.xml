@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/abu_samar"
+    tools:context=".ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/hello"
+        style="@style/textListNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/hello"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        style="@style/textListBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/hello"
+        app:layout_constraintTop_toTopOf="@+id/hello"
+        tools:text="Ilham Dohaan" />
+
+    <TextView
+        android:id="@+id/tv_logout"
+        style="@style/textListNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_user_name" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="64dp"
+        android:paddingHorizontal="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_input_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_list_menu"
+                android:clickable="true"
+                android:elevation="3dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="4dp">
+
+                <ImageView
+                    android:id="@+id/img_input"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:contentDescription="@string/anggaran"
+                    android:src="@drawable/ic_menu_input" />
+
+                <TextView
+                    android:id="@+id/tv_input_data"
+                    style="@style/textListBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_toEndOf="@id/img_input"
+                    android:text="@string/anggaran" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_input_data"
+                    android:layout_alignStart="@id/tv_input_data"
+                    android:layout_marginTop="8dp"
+                    android:text="Olah Data Anggaran Pendapatan dan Belanja Daerah" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_laporan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_list_menu"
+                android:clickable="true"
+                android:elevation="3dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="4dp">
+
+                <ImageView
+                    android:id="@+id/img_laporan"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:contentDescription="@string/anggaran"
+                    android:src="@drawable/ic_menu_laporan" />
+
+                <TextView
+                    android:id="@+id/tv_laporan"
+                    style="@style/textListBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_toEndOf="@id/img_laporan"
+                    android:text="@string/laporan" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_laporan"
+                    android:layout_alignStart="@id/tv_laporan"
+                    android:layout_marginTop="8dp"
+                    android:text="Rekapitulasi data Anggaran Pendapatan dan Belanja Daerah Kota Madiun" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_master_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_list_menu"
+                android:clickable="true"
+                android:elevation="3dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="4dp">
+
+                <ImageView
+                    android:id="@+id/img_master"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:contentDescription="@string/anggaran"
+                    android:src="@drawable/ic_menu_master" />
+
+                <TextView
+                    android:id="@+id/tv_master"
+                    style="@style/textListBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_toEndOf="@id/img_master"
+                    android:text="@string/master_data" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_master"
+                    android:layout_alignStart="@id/tv_master"
+                    android:layout_marginTop="8dp"
+                    android:text="Master data Anggaran Pendapatan dan Belanja Daerah, berisi master data untuk digunakan sebagai bahan masukkan pada data anggaran sistem." />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_user_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_list_menu"
+                android:clickable="true"
+                android:elevation="3dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="4dp">
+
+                <ImageView
+                    android:id="@+id/img_user"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:contentDescription="@string/anggaran"
+                    android:src="@drawable/ic_account" />
+
+                <TextView
+                    android:id="@+id/tv_user"
+                    style="@style/textListBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_toEndOf="@id/img_user"
+                    android:text="User Data" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_user"
+                    android:layout_alignStart="@id/tv_user"
+                    android:layout_marginTop="8dp"
+                    android:text="Olah data akun pengguna aplikasi" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_pengaturan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_list_menu"
+                android:clickable="true"
+                android:elevation="3dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="4dp">
+
+                <ImageView
+                    android:id="@+id/img_setting"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:contentDescription="@string/anggaran"
+                    android:src="@drawable/ic_menu_setting" />
+
+                <TextView
+                    android:id="@+id/tv_setting"
+                    style="@style/textListBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_toEndOf="@id/img_setting"
+                    android:text="@string/pengaturan" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_setting"
+                    android:layout_alignStart="@id/tv_setting"
+                    android:layout_marginTop="8dp"
+                    android:text="Untuk mengatur dokumen mana yang akan digunakan pada aplikasi" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

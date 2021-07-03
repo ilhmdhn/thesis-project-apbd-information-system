@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.laporan.LaporanMenuFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_laporan_skpd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:paddingVertical="8dp"
+            android:text="Anggaran Organisasi"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_ringkasan_anggaran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:paddingVertical="8dp"
+            android:text="Anggaran Dokumen"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_filter_anggaran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:paddingVertical="8dp"
+            android:text="Anggaran Rekening"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</ScrollView>

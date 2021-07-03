@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/abu_samar"
+    android:orientation="vertical"
+    android:paddingHorizontal="4dp"
+    tools:context=".ui.master.MasterDataFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_master_rekening"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_list_menu"
+            android:clickable="true"
+            android:elevation="3dp"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/img_rekening"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:contentDescription="@string/anggaran"
+                android:src="@drawable/ic_card" />
+
+            <TextView
+                android:id="@+id/tv_rekening"
+                style="@style/textListBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_toEndOf="@id/img_rekening"
+                android:text="@string/master_data_rekening" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_rekening"
+                android:layout_alignStart="@id/tv_rekening"
+                android:layout_marginTop="8dp"
+                android:text="Olah Master Data Rekening" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_organisasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_list_menu"
+            android:clickable="true"
+            android:elevation="3dp"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/img_organisasi"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:contentDescription="@string/anggaran"
+                android:src="@drawable/ic_organisation" />
+
+            <TextView
+                android:id="@+id/tv_organisasi"
+                style="@style/textListBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_toEndOf="@id/img_organisasi"
+                android:text="@string/master_data_organisasi" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_organisasi"
+                android:layout_alignStart="@id/tv_organisasi"
+                android:layout_marginTop="8dp"
+                android:text="Olah Master Data Organisasi" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_program_dan_kegiatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_list_menu"
+            android:clickable="true"
+            android:elevation="3dp"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/img_kegiatan"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:contentDescription="@string/program_dan_kegiatan"
+                android:src="@drawable/ic_work" />
+
+            <TextView
+                android:id="@+id/tv_program_dan_kegiatan"
+                style="@style/textListBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_toEndOf="@id/img_kegiatan"
+                android:text="@string/master_data_program_dan_kegiatan" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_program_dan_kegiatan"
+                android:layout_alignStart="@id/tv_program_dan_kegiatan"
+                android:layout_marginTop="8dp"
+                android:text="Olah Master Data Program dan Kegiatan" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

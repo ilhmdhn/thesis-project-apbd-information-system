@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.master.organisasi.UpdateOrganisasiActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <TableRow android:layout_marginTop="6dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tanggal_input" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titik_dua"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_tgl_entry"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="5 maret 1999" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="6dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/userr" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titik_dua"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_user_id"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="Ilham Dohaan" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="6dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/kode_org" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titik_dua"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_kode_organisasi"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="631555" />
+            </TableRow>
+
+        </TableLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textRekeningDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <EditText
+                android:id="@+id/edt_keterangan_skpd"
+                style="@style/textRekeningDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nama_organisasi"
+                android:importantForAutofill="no"
+                android:inputType="textLongMessage"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textRekeningDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <EditText
+                android:id="@+id/edt_kode_bagian"
+                style="@style/textRekeningDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/kode_bagian"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textRekeningDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <EditText
+                android:id="@+id/edt_nama_bagian"
+                style="@style/textRekeningDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nama_bagiann"
+                android:importantForAutofill="no"
+                android:inputType="textLongMessage"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textRekeningDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <EditText
+                android:id="@+id/edt_nama_fungsi"
+                style="@style/textRekeningDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nama_fungsi"
+                android:importantForAutofill="no"
+                android:inputType="textLongMessage"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="10dp"
+                android:text="@string/perbarui_data" />
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/hapus" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

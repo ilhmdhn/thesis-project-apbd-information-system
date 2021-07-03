@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_list"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="horizontal"
+    android:paddingHorizontal="4dp">
+
+    <TextView
+        android:id="@+id/tv_kode_rekening"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black"
+        tools:text="1.23.0.01" />
+
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_uraian"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:textColor="@color/black"
+        tools:text="Retribusi Penggantian Biaya KTP dan Akte Catatan Sipil" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_2014"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:textColor="@color/black"
+        tools:text="Rp. 965.256.225.000" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_2015"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:textColor="@color/black"
+        tools:text="Rp. 965.256.225.000" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_2016"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:textColor="@color/black"
+        tools:text="Rp. 965.256.225.000" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_2017"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:textColor="@color/black"
+        tools:text="Rp. 965.256.225.000" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_2018"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:textColor="@color/black"
+        tools:text="Rp. 965.256.225.000" />
+</LinearLayout>

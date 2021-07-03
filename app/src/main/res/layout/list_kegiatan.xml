@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_list"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_kode_organisasi"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/black"
+        tools:text="63155" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_kode_keg"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:textColor="@color/black"
+        tools:text="123221" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_nama_program"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:textColor="@color/black"
+        tools:text="Program Pemeliharaan Barang Milik Daerah" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_nama_kegiatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:textColor="@color/black"
+        tools:text="Rehabilitasi sedang/berat rumah jabatan" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

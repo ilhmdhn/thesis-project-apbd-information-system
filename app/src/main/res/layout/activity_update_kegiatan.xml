@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.master.programdankegiatan.UpdateKegiatanActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp">
+
+            <TableRow>
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tahun" />
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titik_dua" />
+
+                <TextView
+                    android:id="@+id/tv_tahun"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="@string/tahun" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="6dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kode Kota" />
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titik_dua" />
+
+                <TextView
+                    android:id="@+id/tv_kode_kota"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="254" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="6dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tanggal_input" />
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titik_dua" />
+
+                <TextView
+                    android:id="@+id/tv_tgl_entry"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="5 maret 1999" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="6dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/userr" />
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titik_dua" />
+
+                <TextView
+                    android:id="@+id/tv_user_id"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="Ilham Dohaan" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="6dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/kode_org" />
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titik_dua" />
+
+                <TextView
+                    android:id="@+id/tv_kode_organisasi"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="631555" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="6dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nama Organisasi" />
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titik_dua" />
+
+                <TextView
+                    android:id="@+id/tv_nama_organisasi"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="Organisasi Merdeka" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="6dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/kode_kegiatan" />
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titik_dua" />
+
+                <TextView
+                    android:id="@+id/tv_kode_kegiatan"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="631555" />
+            </TableRow>
+
+        </TableLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textRekeningDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp">
+
+            <EditText
+                android:id="@+id/edt_nama_program"
+                style="@style/textRekeningDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nama_program"
+                android:importantForAutofill="no"
+                android:inputType="textLongMessage"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textRekeningDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp">
+
+            <EditText
+                android:id="@+id/edt_nama_kegiatan"
+                style="@style/textRekeningDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nama_kegiatan"
+                android:importantForAutofill="no"
+                android:inputType="textLongMessage"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="10dp"
+                android:text="@string/perbarui_data" />
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/hapus" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

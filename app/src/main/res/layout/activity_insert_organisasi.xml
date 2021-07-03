@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.master.organisasi.InsertOrganisasiActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textRekeningDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp">
+
+            <EditText
+                android:id="@+id/edt_skpd"
+                style="@style/textRekeningDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/kode_skpd"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLines="5" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textRekeningDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp">
+
+            <EditText
+                android:id="@+id/edt_keterangan_skpd"
+                style="@style/textRekeningDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/keterangan_skpd"
+                android:importantForAutofill="no"
+                android:inputType="textLongMessage"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textRekeningDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp">
+
+            <EditText
+                android:id="@+id/edt_kode_bagian"
+                style="@style/textRekeningDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/kode_bagian"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textRekeningDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp">
+
+            <EditText
+                android:id="@+id/edt_nama_bagian"
+                style="@style/textRekeningDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nama_bagiann"
+                android:importantForAutofill="no"
+                android:inputType="textLongMessage"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textRekeningDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp">
+
+            <EditText
+                android:id="@+id/edt_nama_fungsi"
+                style="@style/textRekeningDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nama_fungsi"
+                android:importantForAutofill="no"
+                android:inputType="textLongMessage"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/submit" />
+    </LinearLayout>
+</ScrollView>

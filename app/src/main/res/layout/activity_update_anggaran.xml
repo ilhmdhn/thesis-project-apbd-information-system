@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.anggaran.UpdateAnggaranActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp">
+
+            <TableRow>
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tahun" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_tahun"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="@string/tahun" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tanggal_input" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_tgl_entry"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="5 maret 1999" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/userr" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_user_id"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="Ilham Dohaan" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/kode_org" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_kode_organisasi"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="631555" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/nama_organisasi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_nama_organisasi"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="Organisasi Merdeka" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kode Bagian" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_kode_bagian"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="00" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nama Bagian" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_nama_bagian"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="Bagian Administrasi Pemerintahan" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Halaman Dokumen" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_halaman_dokumen"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="18" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kode Program" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_kode_program"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="019" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nama Program" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_nama_program"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="Nama Program" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kode Kegiatan" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_kode_kegiatan"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="002" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nama Kegiatan" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_nama_kegiatan"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="002" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kode Rekening" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_kode_rekening"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="4210203" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nama Rekening" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_nama_rekening"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="Rekening Bersama" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <TextView
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ID Data" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titik_dua"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_id_data"
+                    style="@style/textListNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="2"
+                    tools:text="9976" />
+            </TableRow>
+        </TableLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textRekeningDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp">
+
+            <EditText
+                android:id="@+id/edt_nominal_anggaran"
+                style="@style/textRekeningDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nominal Anggaran"
+                android:importantForAutofill="no"
+                android:inputType="textLongMessage"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="10dp"
+                android:text="@string/perbarui_data" />
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/hapus" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
