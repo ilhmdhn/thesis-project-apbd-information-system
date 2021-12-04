@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ilhmdhn.simranda.R
 import com.ilhmdhn.simranda.data.DataRepository
 import com.ilhmdhn.simranda.databinding.ActivitySelectKegiatanBinding
+import com.ilhmdhn.simranda.ui.master.rekening.RekeningViewModel
 import com.ilhmdhn.simranda.utils.Utils
 import com.ilhmdhn.simranda.viewmodel.ViewModelFactory
 import com.ilhmdhn.simranda.vo.Status
@@ -23,20 +24,25 @@ class SelectKegiatanActivity : AppCompatActivity() {
     private val binding get() = _activitySelectRekeningBinding
     val selectKegiatanAdapter = SelectKegiatanAdapter()
 
-    companion object {
-        var kodeOrg: String? = null
-    }
-
+    private lateinit var viewModel: AnggaranViewModel
+    var year: String = ""
+    var key: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         _activitySelectRekeningBinding = ActivitySelectKegiatanBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-
         supportActionBar?.title = "Pilih Program dan Kegiatan"
 
-        DataRepository.isConnected = Utils.networkCheck(applicationContext)
+
+        val factory = ViewModelFactory.getInstance(this)
+        viewModel = ViewModelProvider(this, factory)[AnggaranViewModel::class.java]
+
+        val sharedPref = applicationContext.getSharedPreferences(R.string.setting_data.toString(), Context.MODE_PRIVATE)
+        year = sharedPref?.getString("year", getString(R.string.default_year)).toString()
+        key = sharedPref?.getString("key", "").toString()
+
         getAllData()
 
         binding?.swiped?.setOnRefreshListener {
@@ -46,16 +52,6 @@ class SelectKegiatanActivity : AppCompatActivity() {
     }
 
     private fun getAllData() {
-        val sharedPref = applicationContext.getSharedPreferences(
-            R.string.setting_data.toString(),
-            Context.MODE_PRIVATE
-        )
-        val factory = ViewModelFactory.getInstance(this)
-        val viewModel = ViewModelProvider(this, factory)[AnggaranViewModel::class.java]
-
-        val year = sharedPref?.getString("year", getString(R.string.default_year)).toString()
-        val key = sharedPref?.getString("key", "").toString()
-
         viewModel.getSelectKegiatan(key, year, kodeOrg).observe(this, { kegiatan ->
             if (kegiatan != null) {
                 when (kegiatan.status) {
@@ -70,16 +66,16 @@ class SelectKegiatanActivity : AppCompatActivity() {
                     }
                 }
             }
+            with(binding?.rvKegiatan) {
+                this?.layoutManager = LinearLayoutManager(this?.context)
+                this?.setHasFixedSize(true)
+                this?.adapter = selectKegiatanAdapter
+            }
         })
-        showRecycler()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_master, menu)
-
-        val factory = ViewModelFactory.getInstance(this)
-        val viewModel = ViewModelProvider(this, factory)[AnggaranViewModel::class.java]
-
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = menu?.findItem(R.id.search)?.actionView as SearchView
 
@@ -102,8 +98,6 @@ class SelectKegiatanActivity : AppCompatActivity() {
                         if (newText.isNullOrEmpty()) {
                             getAllData()
                         }
-
-                        showRecycler()
                     })
                 return true
             }
@@ -111,11 +105,7 @@ class SelectKegiatanActivity : AppCompatActivity() {
         return true
     }
 
-    private fun showRecycler() {
-        with(binding?.rvKegiatan) {
-            this?.layoutManager = LinearLayoutManager(this?.context)
-            this?.setHasFixedSize(true)
-            this?.adapter = selectKegiatanAdapter
-        }
+    companion object {
+        var kodeOrg: String? = null
     }
 }

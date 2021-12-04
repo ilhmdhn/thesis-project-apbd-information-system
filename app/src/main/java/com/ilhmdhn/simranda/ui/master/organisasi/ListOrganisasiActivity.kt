@@ -101,14 +101,10 @@ class ListOrganisasiActivity : AppCompatActivity() {
                         if (newText.isNullOrEmpty()) {
                             getAllData()
                         }
-                        showRecycler()
                     })
                 return true
             }
         })
         return true
-    }
-
-    private fun showRecycler() {
     }
 }
