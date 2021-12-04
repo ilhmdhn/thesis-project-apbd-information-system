@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ilhmdhn.simranda.R
 import com.ilhmdhn.simranda.data.DataRepository
 import com.ilhmdhn.simranda.databinding.ActivityListOrganisasiBinding
+import com.ilhmdhn.simranda.ui.master.rekening.RekeningViewModel
 import com.ilhmdhn.simranda.utils.Utils.networkCheck
 import com.ilhmdhn.simranda.viewmodel.ViewModelFactory
 import com.ilhmdhn.simranda.vo.Status
@@ -23,12 +24,23 @@ class ListOrganisasiActivity : AppCompatActivity() {
     private var _activityListOrganisasiBinding: ActivityListOrganisasiBinding? = null
     private val binding get() = _activityListOrganisasiBinding
     val organisasiMasterAdapter = OrganisasiAdapter()
+    private lateinit var viewModel: OrganisasiViewModel
+    var year: String = ""
+    var key: String = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         _activityListOrganisasiBinding = ActivityListOrganisasiBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+
+        val factory = ViewModelFactory.getInstance(this)
+        viewModel = ViewModelProvider(this, factory)[OrganisasiViewModel::class.java]
+
+        val sharedPref = applicationContext?.getSharedPreferences(R.string.setting_data.toString(), Context.MODE_PRIVATE)
+        year = sharedPref?.getString("year", getString(R.string.default_year)).toString()
+        key = sharedPref?.getString("key", "").toString()
 
         binding?.fab?.setOnClickListener {
             startActivity(Intent(this, InsertOrganisasiActivity::class.java))
@@ -43,23 +55,7 @@ class ListOrganisasiActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        DataRepository.isConnected = networkCheck(applicationContext)
-        getAllData()
-        super.onResume()
-    }
-
     private fun getAllData() {
-        val sharedPref = applicationContext?.getSharedPreferences(
-            R.string.setting_data.toString(),
-            Context.MODE_PRIVATE
-        )
-        val factory = ViewModelFactory.getInstance(this)
-        val viewModel = ViewModelProvider(this, factory)[OrganisasiViewModel::class.java]
-
-        val year = sharedPref?.getString("year", getString(R.string.default_year)).toString()
-        val key = sharedPref?.getString("key", "").toString()
-
         viewModel.getOrganisasi(key, year).observe(this, { organisasi ->
             if (organisasi != null) {
                 when (organisasi.status) {
@@ -74,16 +70,16 @@ class ListOrganisasiActivity : AppCompatActivity() {
                     }
                 }
             }
+            with(binding?.rvOrganisasi) {
+                this?.layoutManager = LinearLayoutManager(this?.context)
+                this?.setHasFixedSize(true)
+                this?.adapter = organisasiMasterAdapter
+            }
         })
-        showRecycler()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_master, menu)
-
-        val factory = ViewModelFactory.getInstance(this)
-        val viewModel = ViewModelProvider(this, factory)[OrganisasiViewModel::class.java]
-
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = menu?.findItem(R.id.search)?.actionView as SearchView
 
@@ -114,10 +110,5 @@ class ListOrganisasiActivity : AppCompatActivity() {
     }
 
     private fun showRecycler() {
-        with(binding?.rvOrganisasi) {
-            this?.layoutManager = LinearLayoutManager(this?.context)
-            this?.setHasFixedSize(true)
-            this?.adapter = organisasiMasterAdapter
-        }
     }
 }
