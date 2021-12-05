@@ -27,8 +27,11 @@ class ListAnggaranActivity : AppCompatActivity() {
     private var _activityListAnggaranBinding: ActivityListAnggaranBinding? = null
     private val binding get() = _activityListAnggaranBinding
     val anggaranAdapter = AnggaranAdapter()
-    var kodeDok: String? = null
-    var title: String? = null
+    private lateinit var viewModel: AnggaranViewModel
+    var kodeDok: String = ""
+    var title: String = ""
+    var key: String = ""
+    var year: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +39,14 @@ class ListAnggaranActivity : AppCompatActivity() {
         _activityListAnggaranBinding = ActivityListAnggaranBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        kodeDok = intent.getStringExtra(EXTRA_KODE_DOK)
+        val sharedPref = applicationContext?.getSharedPreferences(R.string.setting_data.toString(), Context.MODE_PRIVATE)
+        val factory = ViewModelFactory.getInstance(this)
+        viewModel = ViewModelProvider(this, factory)[AnggaranViewModel::class.java]
+
+        year = sharedPref?.getString("year", getString(R.string.default_year)).toString()
+        key = sharedPref?.getString("key", "").toString()
+
+        kodeDok = intent.getStringExtra(EXTRA_KODE_DOK).toString()
 
         when (kodeDok) {
             "1" -> title = "RKA SKPD"
@@ -62,24 +72,9 @@ class ListAnggaranActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        DataRepository.isConnected = Utils.networkCheck(applicationContext)
-        getAllData()
-    }
-
     private fun getAllData() {
-        val sharedPref = applicationContext?.getSharedPreferences(
-            R.string.setting_data.toString(),
-            Context.MODE_PRIVATE
-        )
-        val factory = ViewModelFactory.getInstance(this)
-        val viewModel = ViewModelProvider(this, factory)[AnggaranViewModel::class.java]
 
-        val year = sharedPref?.getString("year", getString(R.string.default_year)).toString()
-        val key = sharedPref?.getString("key", "").toString()
-
-        viewModel.getAnggaran(key, year, kodeDok!!).observe(this, { anggaran ->
+        viewModel.getAnggaran(key, year, kodeDok).observe(this, { anggaran ->
             if (anggaran != null) {
                 when (anggaran.status) {
                     Status.LOADING -> binding?.progressBar?.visibility = View.VISIBLE
@@ -93,15 +88,16 @@ class ListAnggaranActivity : AppCompatActivity() {
                     }
                 }
             }
+            with(binding?.rvAnggaran) {
+                this?.layoutManager = LinearLayoutManager(this?.context)
+                this?.setHasFixedSize(true)
+                this?.adapter = anggaranAdapter
+            }
         })
-        showRecycler()
-    }
+     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_master, menu)
-
-        val factory = ViewModelFactory.getInstance(this)
-        val viewModel = ViewModelProvider(this, factory)[AnggaranViewModel::class.java]
 
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = menu?.findItem(R.id.search)?.actionView as SearchView
@@ -115,7 +111,7 @@ class ListAnggaranActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                viewModel.getSearchAnggaran(kodeDok!!, newText)
+                viewModel.getSearchAnggaran(kodeDok, newText)
                     .observe(this@ListAnggaranActivity, { data ->
                         if (data != null) {
                             DataRepository.isConnected = false
@@ -124,7 +120,6 @@ class ListAnggaranActivity : AppCompatActivity() {
                         if (newText.isNullOrEmpty()) {
                             getAllData()
                         }
-                        showRecycler()
                     })
                 return true
             }
@@ -132,11 +127,4 @@ class ListAnggaranActivity : AppCompatActivity() {
         return true
     }
 
-    private fun showRecycler() {
-        with(binding?.rvAnggaran) {
-            this?.layoutManager = LinearLayoutManager(this?.context)
-            this?.setHasFixedSize(true)
-            this?.adapter = anggaranAdapter
-        }
-    }
 }

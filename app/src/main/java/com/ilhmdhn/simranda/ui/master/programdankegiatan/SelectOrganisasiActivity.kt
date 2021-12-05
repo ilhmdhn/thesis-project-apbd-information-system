@@ -14,6 +14,7 @@ import com.ilhmdhn.simranda.R
 import com.ilhmdhn.simranda.data.DataRepository
 import com.ilhmdhn.simranda.databinding.ActivitySelectOrganisasiBinding
 import com.ilhmdhn.simranda.ui.master.organisasi.OrganisasiViewModel
+import com.ilhmdhn.simranda.ui.master.rekening.RekeningViewModel
 import com.ilhmdhn.simranda.utils.Utils.networkCheck
 import com.ilhmdhn.simranda.viewmodel.ViewModelFactory
 import com.ilhmdhn.simranda.vo.Status
@@ -23,14 +24,23 @@ class SelectOrganisasiActivity : AppCompatActivity() {
     private var _activitySelectOrganisasiBinding: ActivitySelectOrganisasiBinding? = null
     private val binding get() = _activitySelectOrganisasiBinding
     val selectOrganisasiAdapter = SelectOrganisasiAdapter()
+    private lateinit var viewModel: ProgramDanKegiatanViewModel
+    var year: String = ""
+    var key: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         _activitySelectOrganisasiBinding = ActivitySelectOrganisasiBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-
         supportActionBar?.title = "Pilih Organisasi"
+
+        val factory = ViewModelFactory.getInstance(this)
+        viewModel = ViewModelProvider(this, factory)[ProgramDanKegiatanViewModel::class.java]
+
+        val sharedPref = applicationContext?.getSharedPreferences(R.string.setting_data.toString(), Context.MODE_PRIVATE)
+        year = sharedPref?.getString("year", getString(R.string.default_year)).toString()
+        key = sharedPref?.getString("key", "").toString()
 
         DataRepository.isConnected = networkCheck(applicationContext)
         getAllData()
@@ -49,16 +59,6 @@ class SelectOrganisasiActivity : AppCompatActivity() {
     }
 
     private fun getAllData() {
-        val sharedPref = applicationContext?.getSharedPreferences(
-            R.string.setting_data.toString(),
-            Context.MODE_PRIVATE
-        )
-        val factory = ViewModelFactory.getInstance(this)
-        val viewModel = ViewModelProvider(this, factory)[ProgramDanKegiatanViewModel::class.java]
-
-        val year = sharedPref?.getString("year", getString(R.string.default_year)).toString()
-        val key = sharedPref?.getString("key", "").toString()
-
         viewModel.getSelectOrganisasi(key, year).observe(this, { organisasi ->
             if (organisasi != null) {
                 when (organisasi.status) {
@@ -73,15 +73,16 @@ class SelectOrganisasiActivity : AppCompatActivity() {
                     }
                 }
             }
+            with(binding?.rvSelectOrganisasi) {
+                this?.layoutManager = LinearLayoutManager(this?.context)
+                this?.setHasFixedSize(true)
+                this?.adapter = selectOrganisasiAdapter
+            }
         })
-        showRecycler()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_master, menu)
-
-        val factory = ViewModelFactory.getInstance(this)
-        val viewModel = ViewModelProvider(this, factory)[ProgramDanKegiatanViewModel::class.java]
 
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView =
@@ -99,26 +100,16 @@ class SelectOrganisasiActivity : AppCompatActivity() {
                 viewModel.getSelectSearchOrganisasi(newText)
                     .observe(this@SelectOrganisasiActivity, { organisasi ->
                         if (organisasi != null) {
-                            DataRepository.isConnected = false
                             selectOrganisasiAdapter.submitList(organisasi)
                         }
 
                         if (newText.isNullOrEmpty()) {
                             getAllData()
                         }
-                        showRecycler()
                     })
                 return true
             }
         })
         return true
-    }
-
-    private fun showRecycler() {
-        with(binding?.rvSelectOrganisasi) {
-            this?.layoutManager = LinearLayoutManager(this?.context)
-            this?.setHasFixedSize(true)
-            this?.adapter = selectOrganisasiAdapter
-        }
     }
 }
