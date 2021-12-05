@@ -113,9 +113,6 @@ interface SimrandaDao {
     @Query("DELETE FROM anggarandokumenentities WHERE kode_dokumen = :kodeDok AND tahun = :tahun")
     fun deleteAnggaranDokumen(kodeDok: String, tahun: String)
 
-//    Ringkasan Anggaran
-
-
     //    Filter Anggaran
     @Query("SELECT * FROM anggaranrekeningentities WHERE kode_rekening = :kodeRek and kode_dokumen = :kodeDok AND tahun = :tahun")
     fun getAnggaranRekening(

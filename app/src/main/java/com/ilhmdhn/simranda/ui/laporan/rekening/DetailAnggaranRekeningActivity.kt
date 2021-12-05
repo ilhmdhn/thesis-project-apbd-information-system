@@ -71,7 +71,6 @@ class DetailAnggaranRekeningActivity : AppCompatActivity() {
     private fun getData(key: String, kodeRek: String, kodeDok: String, tahun: String) {
         val factory = ViewModelFactory.getInstance(this)
         val viewModel = ViewModelProvider(this, factory)[LaporanViewModel::class.java]
-        DataRepository.isConnected = Utils.networkCheck(applicationContext)
         viewModel.getAnggaranRekening(key, kodeRek, kodeDok, tahun).observe(this, { anggaran ->
             if (anggaran != null) {
                 when (anggaran.status) {

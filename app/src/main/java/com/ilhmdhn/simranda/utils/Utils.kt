@@ -11,15 +11,6 @@ import java.text.NumberFormat
 import java.util.*
 
 object Utils {
-
-    fun networkCheck(context: Context): Boolean {
-        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
-        val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
-
-        return isConnected
-    }
-
     fun generateKodeProgram(program: String?): String {
         return program!![0].toString() + program[1].toString() + program[2].toString()
     }
@@ -46,17 +37,5 @@ object Utils {
         } else {
             return ""
         }
-    }
-
-    fun createKodeKelompok(kodeRek: String?): String {
-        return kodeRek!![0].toString() + kodeRek[1]
-    }
-
-    fun createKodeJenis(kodeRek: String?): String {
-        return kodeRek!![0].toString() + kodeRek[1] + kodeRek[2]
-    }
-
-    fun createKodeObjek(kodeRek: String?): String {
-        return kodeRek!![0].toString() + kodeRek[1] + kodeRek[2] + kodeRek[3] + kodeRek[4]
     }
 }

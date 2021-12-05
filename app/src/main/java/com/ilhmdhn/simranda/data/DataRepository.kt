@@ -18,9 +18,6 @@ class DataRepository private constructor(
 ) : DataSource {
 
     companion object {
-
-        var isConnected = false
-
         @Volatile
         private var instance: DataRepository? = null
 
@@ -37,11 +34,11 @@ class DataRepository private constructor(
     }
 
 //    Rekening
-
     override fun getRekening(
-        key: String,
-        year: String
-    ): LiveData<Resource<PagedList<RekeningEntity>>> {
+    key: String,
+    year: String,
+    reload: Boolean
+): LiveData<Resource<PagedList<RekeningEntity>>> {
         return object :
             NetworkBoundResource<PagedList<RekeningEntity>, List<DataItemRekening>>(appExecutors) {
             override fun loadFromDB(): LiveData<PagedList<RekeningEntity>> {
@@ -54,7 +51,7 @@ class DataRepository private constructor(
             }
 
             override fun shouldFetch(data: PagedList<RekeningEntity>?): Boolean =
-                isConnected
+                data.isNullOrEmpty() || reload
 
 
             override fun createCall(): LiveData<ApiResponse<List<DataItemRekening>>> {
@@ -79,7 +76,8 @@ class DataRepository private constructor(
 
     override fun getSelectRekening(
         key: String,
-        year: String
+        year: String,
+        reload: Boolean
     ): LiveData<Resource<PagedList<RekeningEntity>>> {
         return object :
             NetworkBoundResource<PagedList<RekeningEntity>, List<DataItemRekening>>(appExecutors) {
@@ -93,7 +91,7 @@ class DataRepository private constructor(
             }
 
             override fun shouldFetch(data: PagedList<RekeningEntity>?): Boolean {
-                return isConnected
+                return data.isNullOrEmpty() || reload
             }
 
             override fun createCall(): LiveData<ApiResponse<List<DataItemRekening>>> {
@@ -136,7 +134,8 @@ class DataRepository private constructor(
 
     override fun getOrganisasi(
         key: String,
-        year: String
+        year: String,
+        reload: Boolean
     ): LiveData<Resource<PagedList<OrganisasiEntity>>> {
         return object :
             NetworkBoundResource<PagedList<OrganisasiEntity>, List<DataItemOrganisasi>>(appExecutors) {
@@ -150,7 +149,7 @@ class DataRepository private constructor(
             }
 
             override fun shouldFetch(data: PagedList<OrganisasiEntity>?): Boolean {
-                return isConnected
+                return data.isNullOrEmpty() || reload
             }
 
             override fun createCall(): LiveData<ApiResponse<List<DataItemOrganisasi>>> {
@@ -196,7 +195,8 @@ class DataRepository private constructor(
 
     override fun getSelectOrg(
         key: String,
-        year: String
+        year: String,
+        reload: Boolean
     ): LiveData<Resource<PagedList<OrganisasiEntity>>> {
         return object :
             NetworkBoundResource<PagedList<OrganisasiEntity>, List<DataItemOrganisasi>>(appExecutors) {
@@ -210,7 +210,7 @@ class DataRepository private constructor(
             }
 
             override fun shouldFetch(data: PagedList<OrganisasiEntity>?): Boolean {
-                return isConnected
+                return data.isNullOrEmpty() || reload
             }
 
             override fun createCall(): LiveData<ApiResponse<List<DataItemOrganisasi>>> {
@@ -255,7 +255,8 @@ class DataRepository private constructor(
 
     override fun getKegiatan(
         key: String,
-        year: String
+        year: String,
+        reload: Boolean
     ): LiveData<Resource<PagedList<ProgramDanKegiatanEntity>>> {
         return object :
             NetworkBoundResource<PagedList<ProgramDanKegiatanEntity>, List<DataItemProgramDanKegiatan>>(
@@ -271,7 +272,7 @@ class DataRepository private constructor(
             }
 
             override fun shouldFetch(data: PagedList<ProgramDanKegiatanEntity>?): Boolean {
-                return isConnected
+                return data.isNullOrEmpty() || reload
             }
 
             override fun createCall(): LiveData<ApiResponse<List<DataItemProgramDanKegiatan>>> {
@@ -304,7 +305,8 @@ class DataRepository private constructor(
     override fun getSelectKeg(
         key: String,
         year: String,
-        kodeOrg: String?
+        kodeOrg: String?,
+        reload: Boolean
     ): LiveData<Resource<PagedList<ProgramDanKegiatanEntity>>> {
         return object :
             NetworkBoundResource<PagedList<ProgramDanKegiatanEntity>, List<DataItemProgramDanKegiatan>>(
@@ -320,7 +322,7 @@ class DataRepository private constructor(
             }
 
             override fun shouldFetch(data: PagedList<ProgramDanKegiatanEntity>?): Boolean {
-                return isConnected
+                return data.isNullOrEmpty() || reload
             }
 
             override fun createCall(): LiveData<ApiResponse<List<DataItemProgramDanKegiatan>>> {
@@ -392,7 +394,8 @@ class DataRepository private constructor(
     override fun getAnggaran(
         key: String,
         year: String,
-        kodeDokumen: String
+        kodeDokumen: String,
+        reload: Boolean
     ): LiveData<Resource<PagedList<AnggaranEntity>>> {
         return object :
             NetworkBoundResource<PagedList<AnggaranEntity>, List<DataItemAnggaran>>(appExecutors) {
@@ -409,7 +412,7 @@ class DataRepository private constructor(
             }
 
             override fun shouldFetch(data: PagedList<AnggaranEntity>?): Boolean {
-                return isConnected
+                return data.isNullOrEmpty() || reload
             }
 
             override fun createCall(): LiveData<ApiResponse<List<DataItemAnggaran>>> {
@@ -448,7 +451,8 @@ class DataRepository private constructor(
     override fun getAnggaranDokumen(
         key: String,
         kodeDok: String,
-        tahun: String
+        tahun: String,
+        reload: Boolean
     ): LiveData<Resource<PagedList<AnggaranDokumenEntity>>> {
         return object :
             NetworkBoundResource<PagedList<AnggaranDokumenEntity>, List<DataItemAnggaranDokumen>>(
@@ -467,7 +471,7 @@ class DataRepository private constructor(
                 ).build()
             }
 
-            override fun shouldFetch(data: PagedList<AnggaranDokumenEntity>?): Boolean = isConnected
+            override fun shouldFetch(data: PagedList<AnggaranDokumenEntity>?): Boolean = data.isNullOrEmpty() || reload
 
             override fun createCall(): LiveData<ApiResponse<List<DataItemAnggaranDokumen>>> =
                 remoteDataSource.getAnggaranDokumen(key, kodeDok, tahun)
@@ -493,14 +497,16 @@ class DataRepository private constructor(
         key: String,
         kodeRek: String,
         kodeDok: String,
-        tahun: String
+        tahun: String,
+        reload: Boolean
     ): LiveData<Resource<AnggaranRekeningEntity>> {
         return object :
             NetworkBoundResource<AnggaranRekeningEntity, DataAnggaranRekening>(appExecutors) {
             override fun loadFromDB(): LiveData<AnggaranRekeningEntity> =
                 localDataSource.getAnggaranRekening(kodeRek, kodeDok, tahun)
 
-            override fun shouldFetch(data: AnggaranRekeningEntity?): Boolean = isConnected
+            override fun shouldFetch(data: AnggaranRekeningEntity?): Boolean =
+                data?.id == null || reload
 
             override fun createCall(): LiveData<ApiResponse<DataAnggaranRekening>> =
                 remoteDataSource.getAnggaranRekening(key, kodeRek, kodeDok, tahun)

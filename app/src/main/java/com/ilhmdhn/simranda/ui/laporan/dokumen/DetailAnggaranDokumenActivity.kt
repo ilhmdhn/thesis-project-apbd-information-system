@@ -61,14 +61,7 @@ class DetailAnggaranDokumenActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        DataRepository.isConnected = Utils.networkCheck(applicationContext)
         getData(key, kodeDok, year)
-
-        binding?.swipe?.setOnRefreshListener {
-            DataRepository.isConnected = Utils.networkCheck(applicationContext)
-            getData(key, kodeDok, year)
-            binding?.swipe?.isRefreshing = false
-        }
     }
 
     fun getData(key: String, kodeDok: String, tahun: String) {
