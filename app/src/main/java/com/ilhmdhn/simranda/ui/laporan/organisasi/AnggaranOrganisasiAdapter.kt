@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ilhmdhn.simranda.data.source.local.entity.LaporanAnggaranSkpdEntity
 import com.ilhmdhn.simranda.databinding.ListAnggaranOrganisasiBinding
 
-class AnggaranSkpdAdapter :
-    PagedListAdapter<LaporanAnggaranSkpdEntity, AnggaranSkpdAdapter.AnggaranOrganisasiViewHolder>(
+class AnggaranOrganisasiAdapter :
+    PagedListAdapter<LaporanAnggaranSkpdEntity, AnggaranOrganisasiAdapter.AnggaranOrganisasiViewHolder>(
         DIFF_CALLBACK
     ) {
 

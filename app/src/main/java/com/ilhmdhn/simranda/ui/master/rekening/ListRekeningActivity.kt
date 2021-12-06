@@ -48,7 +48,6 @@ class ListRekeningActivity : AppCompatActivity() {
         supportActionBar?.title = "Master Kode Rekening"
 
         binding?.swipe?.setOnRefreshListener {
-            DataRepository.isConnected = networkCheck(applicationContext)
             getAllData()
             binding?.swipe?.isRefreshing = false
         }

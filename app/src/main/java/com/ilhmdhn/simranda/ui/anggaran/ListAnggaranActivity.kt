@@ -60,7 +60,6 @@ class ListAnggaranActivity : AppCompatActivity() {
 
         supportActionBar?.title = title
         binding?.swiped?.setOnRefreshListener {
-            DataRepository.isConnected = Utils.networkCheck(applicationContext)
             getAllData()
             binding?.swiped?.isRefreshing = false
         }

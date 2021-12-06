@@ -47,7 +47,6 @@ class ListKegiatanActivity : AppCompatActivity() {
         supportActionBar?.title = "Master Data Program dan Kegiatan"
 
         binding?.swiped?.setOnRefreshListener {
-            DataRepository.isConnected = networkCheck(applicationContext)
             getAllData()
             binding?.swiped?.isRefreshing = false
         }
